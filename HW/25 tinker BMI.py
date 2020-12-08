@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk,Button,Label,Entry
 '''
 摂氏 -> 華氏: oC × 1.8 + 32= oF
 華氏 -> 摂氏: (oF - 32) ÷ 1.8 = oC
