@@ -1,0 +1,6 @@
+alpha
+bravo
+charlie
+HELLO
+my
+friend
