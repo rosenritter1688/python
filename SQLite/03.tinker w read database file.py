@@ -1,5 +1,5 @@
 import sqlite3
-from tkinter import Tk,Button
+from tkinter import Tk,Button,END
 import tkinter as tk
 root = tk.Tk()
 root.geometry("600x640")
@@ -7,8 +7,9 @@ root.config(bg="#353130")
 
 
 
-'''#!working
-MAC
+'''#!working MAC
+
+
 
 with sqlite3.connect("//Users//bruceashbee//Documents//SQLite//std.db") as datafile_readed:
     result = datafile_readed.execute(" select * from student ").fetchall()#? fetchall() get all data
@@ -29,13 +30,16 @@ with sqlite3.connect("C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\SQLite\\s
 
 def getTextInput():
     result=textbox_example.get("1.0","end")#?retrive text from textbox and name content as result
-    with sqlite3.connect("C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\SQLite\\std.db") as datafile_readed:
+    #<WIN>#
+    # with sqlite3.connect("C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\SQLite\\std.db") as datafile_readed:
+    #<MAC>
+    with sqlite3.connect("//Users//bruceashbee//Documents//SQLite//std.db") as datafile_readed:
         result = datafile_readed.execute(f" {result} ").fetchall()#? fetchall() get all data
         print(result,"\n",type(result)) #? content of the list are full of tuple
         ##<class 'list'>
         for index, content_each_tuple in enumerate(result, 0):   #? indexing result從0開始給
             print(index, content_each_tuple)      #! result is a list!!!! contents of list are tuple
-            textbox_show.insert(1.0,(index, content_each_tuple))   
+            textbox_show.insert(END,(index, content_each_tuple,"\n"))   
                             #! (1.0,index,content_each_tuple) #its not working this way      
                             #!  如果要丟進去的變數不只一個就要用括號刮起來    
     #textbox_example.delete("1.0","end")   #?delete text in the textbox_example 
