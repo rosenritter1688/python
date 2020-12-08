@@ -26,7 +26,7 @@ with sqlite3.connect("C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\SQLite\\s
         print(index, content_each_tuple)
 
 '''
-def execute_sql_command():
+def execute_sql_command_4student():
     with sqlite3.connect("//Users//bruceashbee//Documents//SQLite//std.db") as datafile_readed:
         result = datafile_readed.execute(f" {sql_command} ").fetchall()#? fetchall() get all data
         #print(result,"\n",type(result)) #? content of the list are full of tuple
@@ -44,8 +44,11 @@ def execute_sql_command():
     #print(result)
     #textbox_show.delete("1.0","end")       #? delete text in textbox_show first
     #textbox_show.insert(1.0,result)        #? pass data to textbox 
-
-
+def execute_sql_command_4course():
+    with sqlite3.connect("//Users//bruceashbee//Documents//SQLite//std.db") as datafile_readed:
+        result = datafile_readed.execute(f" {sql_command} ").fetchall()
+        for index, content_each_tuple in enumerate(result):
+            textbox_show.insert(END,(f"{index:02d} course id : {content_each_tuple[0].ljust(8)} course name : {content_each_tuple[1].rjust(10)} credit : {content_each_tuple[2]}\n"))
 
 
 def getTextInput():
@@ -56,15 +59,16 @@ def getTextInput():
 
     
     if "student" in sql_command:  ##if sql command is ask for student table
-        execute_sql_command()
-    else:
-        print("not looking for table student")
-        textbox_show.insert("1.0","not looking for student table")
+        execute_sql_command_4student()
+    elif "course" in sql_command:
+        execute_sql_command_4course()
+
+    
 
     
 
 
-textbox_example=tk.Text(root, height=10,width=50,bg="#353130",fg="white")
+textbox_example=tk.Text(root, height=10,width=70,bg="#353130",fg="white")
 textbox_example.grid(row=0,column=0)
 
 scrollbar_4_textbox_example = tk.Scrollbar(root)
@@ -73,7 +77,7 @@ scrollbar_4_textbox_example.grid(row=0, column=1, sticky="NS")
 btnRead=tk.Button(root, height=1, width=10,bg="#353130",fg="pink", text="Read",command=getTextInput)
 btnRead.grid(row=1,column=0,sticky="WE",columnspan=2)
 
-textbox_show=tk.Text(root, height=60,width=50,bg="#353130",fg="pink")
+textbox_show=tk.Text(root, height=60,width=70,bg="#353130",fg="pink")
 textbox_show.grid(row=2,column=0)
 
 scrollbar_4_textbox_show = tk.Scrollbar(root)
