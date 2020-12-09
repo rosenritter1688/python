@@ -12,7 +12,7 @@ Created on Wed Dec  4 11:12:15 2019
 
 
 import sqlite3                       
-conn = sqlite3.connect('test.db')          
+conn = sqlite3.connect('C:\\Users\\Bruce Ashbee\\Documents\\Python\\SQLite\\SQLite-old notes\\test.db')          
 
 '''
 連接到一個現有的數據庫。如果數據庫不存在，那麼它就會被創建，最後將返回一個數據庫對象。
