@@ -7,11 +7,10 @@ Created on Wed Dec  4 11:33:10 2019
 
 import sqlite3
 
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('C:\\Users\\Bruce Ashbee\\Documents\\Python\\SQLite\\SQLite-old notes\\test.db')
 print ("Opened database successfully")
 
-conn.execute('''
-             INSERT INTO COMPANY 
+conn.execute('''INSERT INTO COMPANY 
              (ID,
              NAME,
              AGE,

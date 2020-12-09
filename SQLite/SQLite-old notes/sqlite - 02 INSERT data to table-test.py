@@ -7,30 +7,27 @@ Created on Wed Dec  4 11:33:10 2019
 
 import sqlite3
 
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('C:\\Users\\Bruce Ashbee\\Documents\\Python\\SQLite\\SQLite-old notes\\test.db')
 print ("Opened database successfully")
 
-conn.execute('''
-             INSERT INTO COMPANY
-             (ID,
-             NAME,
-             AGE,
-             ADDRESS,
-             SALARY)
-             
-      VALUES 
-      (1,
-      'Paul', 
-      32, 
-      'California', 
-      20000.00 )''');
-conn.execute('''INSERT INTO if not exists COMPANY 
-             (ID,
-             NAME,
-             AGE,
-             ADDRESS,
-             SALARY)
-      VALUES (2,'Allen', 25, 'Texas', 15000.00 )''');
+conn.execute('''INSERT INTO COMPANY             (ID,
+                                                NAME,
+                                                AGE,
+                                                ADDRESS,
+                                                SALARY)
+                              VALUES 
+                                    (1,
+                                    'Paul', 
+                                    32, 
+                                    'California', 
+                                    20000.00 )''');
+# conn.execute('''INSERT INTO if not exists COMPANY 
+#              (ID,
+#              NAME,
+#              AGE,
+#              ADDRESS,
+#              SALARY)
+#       VALUES (2,'Allen', 25, 'Texas', 15000.00 )''');
 
 conn.execute('''INSERT INTO if not exists COMPANY 
              (ID,
