@@ -37,7 +37,7 @@ changed_list = list()
 
 print("---Loop through the file line by line:---")
 #? Loop through the file line by line:
-with open('C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\HW\\TAX\\income.txt',"r+") as f:
+with open('C:\\Users\\Bruce Ashbee\\Documents\\Python\\HW\\TAX\\income.txt',"r+") as f:
     for a in f:
         id = a[:10]
         #id = A000000001
@@ -63,7 +63,7 @@ with open('C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\HW\\TAX\\income.txt'
         #original_list.append([id,area,income,int(tax)])
         #print(original_list)
         #print(type(original_list),"\n")
-        with open('C:\\Users\\Bruce Ashbee\\Documents\\Python 2020\\HW\\TAX\\tax.txt',"a") as tax_data:   #! "a" - Append - Opens a file for appending, creates the file if it does not exist 
+        with open('C:\\Users\\Bruce Ashbee\\Documents\\Python\\HW\\TAX\\tax.txt',"a") as tax_data:   #! "a" - Append - Opens a file for appending, creates the file if it does not exist 
             tax_data.write(f"{id}, {area}, {income}, {int(tax)}\n")
 
 
