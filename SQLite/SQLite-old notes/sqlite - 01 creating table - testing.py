@@ -23,7 +23,7 @@ import sqlite3
 
 sqlite3.connect('test-1.db').cursor().execute('''CREATE TABLE if not exists student
            (std_id	TEXT,
-            std_name	TEXT,
+            std_name TEXT,
             sex	TEXT,
         PRIMARY KEY(std_id));''')
 
