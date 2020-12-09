@@ -49,10 +49,10 @@ c.execute("CREATE TABLE COMPANY         ----->" change to ' x 3 times
 
 conn.cursor().execute('''CREATE TABLE if not exists COMPANY
        (ID INT PRIMARY KEY     NOT NULL,
-       NAME           TEXT    NOT NULL,
-       AGE            INT     NOT NULL,
-       ADDRESS        CHAR(50),
-       SALARY         REAL);''')
+        NAME           TEXT    NOT NULL,
+        AGE            INT     NOT NULL,
+        ADDRESS        CHAR(50),
+        SALARY         REAL);''')
 
 #if not exist加進去後
 #如果已經有student TABLE了他就不會加
