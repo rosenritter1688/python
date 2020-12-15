@@ -47,16 +47,9 @@ for idx , content in enumerate(jsonData,0):
     ## <class 'dict_values'>
     sql_command = " insert into Hospital (City, Hospital, H_Id, Eval_Reault_Local, Eval_Reault_Teaching, Date_Valid_Local, Date_Valid_Teaching, Tel, Address) values("
     for value in content_values:
-        # print(value + " is type " + str(type(value))) #! 檢查每個vlaue的資料性質
-        # 澎湖縣 is type <class 'str'>
-        # 三軍總醫院澎湖分院附設民眾診療服務處 is type <class 'str'>
-        # 1 is type <class 'str'>
-        # 醫院評鑑合格（地區醫院） is type <class 'str'>
-        # 醫師及醫事人員類教學醫院評鑑合格 is type <class 'str'>
-        # 106/1/1-109/12/31 is type <class 'str'>
-        # 106/1/1-109/12/31 is type <class 'str'>
-        # 06-9211116 is type <class 'str'>
-        # 澎湖縣馬公市前寮里90號1-5樓 is type <class 'str'>
+        #if isinstance(value,str) != True:
+        #    print("error")
+        #* double checked all value are STRING
         
         #print(value)
         ### 澎湖縣
@@ -69,15 +62,13 @@ for idx , content in enumerate(jsonData,0):
         ### 06-9211116
         ### 澎湖縣馬公市前寮里90號1-5樓
 
-        #if isinstance(value,str) != True:
-        #    print("error")
-        #* double checked all value are STRING
+
 
         sql_command = sql_command + f'"{value}",'
     sql_command = sql_command[0:-1] + ")" 
-    #print(sql_command)    
+    #print(sql_command)   #* for check sql command  
     execute_SQL_command(sql_command)
-#    conn.commit()
+
 
 conn.close() #! close the connrction with database
 
