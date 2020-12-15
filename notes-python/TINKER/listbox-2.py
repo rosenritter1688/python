@@ -15,12 +15,12 @@ if __name__ == '__main__':
     frame.grid()
 
     # リストボックス
-    currencies = ['JPY', 'USD']
+    currencies = ['JPY', 'USD', 'EUR']
     v = StringVar(value=currencies)
     lb = Listbox(
         frame, listvariable=v,   #! 
         selectmode='multiple', height=4)
-    lb.insert(END, 'EUR')
+    #lb.insert(END, 'EUR')
     lb.bind(
         '<<ListboxSelect>>',
         lambda e: show_selection())
