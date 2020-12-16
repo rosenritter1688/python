@@ -4,19 +4,22 @@ from tkinter import *
   
 root = Tk() 
 root.geometry("150x200") 
-   
+
+
+##create frame
+frame_4_label = Label(root)
+frame_4_label.pack()
+
 w = Label(root, text ='GeeksForGeeks', 
-                font = "50")  
-  
+                         font = "50")  
 w.pack() 
    
-scroll_bar = Scrollbar(root) 
-  
+scroll_bar = Scrollbar(frame_4_label) 
 scroll_bar.pack( side = RIGHT, 
-                fill = Y ) 
-   
-mylist = Listbox(root,  
-                 yscrollcommand = scroll_bar.set ) 
+                 fill = Y ) #? Y -> fill up UP and DOWN       
+                     #! X is not working properly, need to do some research for horizontal scrollbar
+mylist = Listbox(frame_4_label,  
+                 yscrollcommand = scroll_bar.set )  #! yscrollcommand is must research needed
    
 for line in range(1, 26): 
     mylist.insert(END, "Geeks " + str(line)) 

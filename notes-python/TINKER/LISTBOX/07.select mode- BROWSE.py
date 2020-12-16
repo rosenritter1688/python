@@ -1,9 +1,10 @@
-from tkinter import Listbox,END,Button,ANCHOR,Label,Frame,Scrollbar,VERTICAL,RIGHT,Y,Tk
+from tkinter import Listbox,END,Button,ANCHOR,Label,Frame,Scrollbar,VERTICAL,RIGHT,Y,Tk,BROWSE
 import tkinter as tk
 root = tk.Tk()
 root.geometry("600x640")
 root.config(bg="#353130")
-
+#! selcet mode CHECK LINE 20   21
+#! BORWSE is for moving options around but its not working need some insearch
 
 # Create Frame
 my_frame = Frame(root)
@@ -16,8 +17,8 @@ scroll_bar_4_my_listbox = Scrollbar(my_frame,orient=VERTICAL)
 scroll_bar_4_my_listbox.pack(side=RIGHT,fill=Y) #? y is to fill UP and DOWN all the way 
                              #? pack in on RIGHT hand side
 #Listbox
-#*  SELECT MODE = SINGLE IS AT DEFAULT
-my_listbox = Listbox(my_frame, width=50, bg="#353130",fg="white", yscrollcommand=scroll_bar_4_my_listbox.set)  #?yscrollcommand -> is for horizontal scrollbar
+#*  SELECT MODE = SINGLE IS AT DEFAULT.  <OTHER OPTIONS> BROWSE, MULTIPLE, EXTENDED 
+my_listbox = Listbox(my_frame, width=50, bg="#353130",fg="white", yscrollcommand=scroll_bar_4_my_listbox.set, selectmode = BROWSE)  #?yscrollcommand -> is for horizontal scrollbar
 my_listbox.pack(pady=15)
 
 ## coz of my_listbox no defined so got to put it here
