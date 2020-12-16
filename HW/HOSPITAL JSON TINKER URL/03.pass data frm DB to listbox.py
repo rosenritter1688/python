@@ -45,7 +45,18 @@ def listbox_add_selection():
     #print(content['醫院名稱'])#? check for getting values for adding listbox selections
     my_listbox.insert(END,f"{str(idx + 1)}  {content['醫院名稱']}")
     Tk.update(root)
-
+def retrieve_data_frm_DB_to_listbox():
+    global conn
+    c = conn.cursor()
+    print ("Opened database successfully")
+    cursor = c.execute("SELECT *  from Hospital")
+    for idx, row in enumerate(cursor, 1):
+        #print("---------------------------------------")
+        #print(row)
+        ## ('臺東縣', '台灣基督長老教會馬偕醫療財團法人台東馬偕紀念醫院', '1', '醫院評鑑合格（區域醫院）', '醫師及醫事人員類教學醫院評鑑合格', '109/1/1-112/12/31', '109/1/1-112/12/31', '089-310150', '臺東縣臺東市長沙街303巷1號')
+               #0                     1                               2               3                          4                            5                  6                 7                 8                                                                                                        
+        my_listbox.insert(END,f"{str(idx)} {row[0]} {row[2]} {row[1]} {row[7]} {row[8]}")
+        Tk.update(root)
 
 
 def get_JSON_frm_internet():
@@ -66,7 +77,7 @@ def get_JSON_frm_internet():
     #* jsonData is <class 'list'>
     for idx , content in enumerate(jsonData,0): 
         #print(content)
-        listbox_add_selection()
+        #listbox_add_selection()
         ##{'所在縣市': '澎湖縣', '醫院名稱': '三軍總醫院澎湖分院附設民眾診療服務處', '編號': '1', '醫院評鑑評鑑結果': '醫院評鑑合格（地區醫院）', '教學醫院評鑑結果': '醫師及醫事人員類教學醫院評鑑合格', '醫院評鑑合格效期': '106/1/1-109/12/31', '教學醫院合格效期': '106/1/1-109/12/31', '醫院電話': '06-9211116', '地址': '澎湖縣馬公市前寮里90號1-5樓'}  
         #print("====================")
         #print("idx={0}, content={1} \n".format(idx, content))
@@ -96,7 +107,9 @@ def get_JSON_frm_internet():
             sql_command = sql_command + f'"{value}",'
         sql_command = sql_command[0:-1] + ")"  
         execute_SQL_command(sql_command)
+    retrieve_data_frm_DB_to_listbox()
     conn.close()
+
     
 
 
@@ -117,7 +130,7 @@ scroll_bar_4_my_listbox.grid(row=2,column=1,sticky=N+S+W)
 
 #Listbox
 #*  SELECT MODE = SINGLE IS AT DEFAULT
-my_listbox = Listbox(my_frame, width=110,height=50, bg="#353130",fg="white")  #?yscrollcommand -> is for horizontal scrollbar
+my_listbox = Listbox(my_frame, width=110, bg="#353130",fg="white")  #?yscrollcommand -> is for horizontal scrollbar
 my_listbox.grid(row=2,column=0,sticky=W+E)
 
 scroll_bar_4_my_listbox.config(command=my_listbox.yview)
