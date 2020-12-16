@@ -5,11 +5,11 @@ from tkinter import * #Listbox,END,Button,ANCHOR,Label,Frame,Scrollbar,VERTICAL,
 import tkinter as tk
 
 root = tk.Tk()
-root.geometry("1000x640")                  #Width x Height
+root.geometry("1000x940")                  #Width x Height
 root.config(bg="#353130")                  #背景
 root.title("GET JSON DATA FROM INTERNET")              
 root.resizable(1,1)                        #1:True 0:False  此例 寬不可調, 高可調
-root.maxsize(width=1500, height=1024)      #可調整最大尺寸
+root.maxsize(width=1500, height=1080)      #可調整最大尺寸
 #root.minsize(width=800, height=640)       #可調整最小尺寸
 #win.iconbitmap("C:\\Users\\clark\\Downloads\\cat.ico") #左上角的ico                 
 root.attributes("-alpha",1)                #透明度:0(全透)到1(不透)之間 
