@@ -11,7 +11,6 @@ my_frame = Frame(root)
 my_frame.pack()
 
 
-
 #scroll bar
 scroll_bar_4_my_listbox = Scrollbar(my_frame,orient=VERTICAL)
 scroll_bar_4_my_listbox.pack(side=RIGHT,fill=Y) #? y is to fill UP and DOWN all the way 
