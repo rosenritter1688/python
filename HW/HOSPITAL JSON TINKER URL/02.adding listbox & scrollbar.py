@@ -42,12 +42,13 @@ def execute_SQL_command(sql_command):
 def listbox_add_selection():
     global content
     #print(content['醫院名稱'])#? check for getting values for adding listbox selections
-    my_listbox.insert(END,content['醫院名稱'])
+    my_listbox.insert(END,f"{str(idx + 1)}  {content['醫院名稱']}")
+    Tk.update(root)
 
 
 
 def get_JSON_frm_internet():
-    global content
+    global content,idx
     #?とりあえず例として、どこかのWeb APIを叩くことにする
     url = URL_entry.get()
     #?requests.getを使うと、レスポンス内容を取得できるのでとりあえず変数へ保存
@@ -116,7 +117,7 @@ scroll_bar_4_my_listbox.grid(row=2,column=1,sticky=N+S+W)
 
 #Listbox
 #*  SELECT MODE = SINGLE IS AT DEFAULT
-my_listbox = Listbox(my_frame, width=100, bg="#353130",fg="white")  #?yscrollcommand -> is for horizontal scrollbar
+my_listbox = Listbox(my_frame, width=110, bg="#353130",fg="white")  #?yscrollcommand -> is for horizontal scrollbar
 my_listbox.grid(row=2,column=0,sticky=W+E)
 
 scroll_bar_4_my_listbox.config(command=my_listbox.yview)
