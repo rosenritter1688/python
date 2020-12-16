@@ -3,16 +3,17 @@ import json
 import sqlite3
 from tkinter import * #Listbox,END,Button,ANCHOR,Label,Frame,Scrollbar,VERTICAL,RIGHT,Y,Tk,MULTIPLE,Entry
 import tkinter as tk
+
 root = tk.Tk()
 root.geometry("1000x640")                  #Width x Height
-root.config(bg="#353130")                 #背景
+root.config(bg="#353130")                  #背景
 root.title("GET JSON DATA FROM INTERNET")              
-root.resizable(1,1)                       #1:True 0:False  此例 寬不可調, 高可調
+root.resizable(1,1)                        #1:True 0:False  此例 寬不可調, 高可調
 root.maxsize(width=1500, height=1024)      #可調整最大尺寸
 #root.minsize(width=800, height=640)       #可調整最小尺寸
 #win.iconbitmap("C:\\Users\\clark\\Downloads\\cat.ico") #左上角的ico                 
-root.attributes("-alpha",1)               #透明度:0(全透)到1(不透)之間 
-root.attributes("-topmost",True)          #出現在螢幕最上面
+root.attributes("-alpha",1)                #透明度:0(全透)到1(不透)之間 
+root.attributes("-topmost",True)           #出現在螢幕最上面
 
 url_label = Label(root,text="URL",bg="#353130",fg="white")
 url_label.config(height=1)
@@ -80,9 +81,8 @@ def get_JSON_frm_internet():
         
         sql_command = " insert into Hospital (City, Hospital, H_Id, Eval_Reault_Local, Eval_Reault_Teaching, Date_Valid_Local, Date_Valid_Teaching, Tel, Address) values("
         for value in content_values:
-            #if isinstance(value,str) != True:
+            #if isinstance(value,str) != True:             #* double checking all value are STRING
             #    print("error")
-            #* double checked all value are STRING
             #print(value)
             ### 澎湖縣
             ### 三軍總醫院澎湖分院附設民眾診療服務處
