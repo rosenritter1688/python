@@ -5,7 +5,7 @@ t = ('RHAT',)
 
 # connecttion.execute('SELECT * FROM student')
 # result = connecttion.fetchall()
-#* same as below
+#* line 6 ,7 same as below
 result = connecttion.execute('SELECT * FROM student').fetchall()
 
 print(result)
