@@ -19,9 +19,6 @@ url_label = Label(root,text="URL",bg="#353130",fg="white")
 url_label.config(height=1)
 url_label.grid(row=1,column=0)
 
-# title_Entry = Entry(root,text="URL",bg="#353130",fg="white")
-# title_Entry.config(text="https://quality.data.gov.tw/dq_download_json.php?nid=6271&md5_url=93b5af5fe0916469b3c3d5e6bc89912f")
-# title_Entry.grid(row=0,column=0,columnspan=3,sticky=W+E)
 print("https://quality.data.gov.tw/dq_download_json.php?nid=6271&md5_url=93b5af5fe0916469b3c3d5e6bc89912f")
 
 URL_entry = Entry(root,width=100,bg="#353130",fg="white") #! height=1  cant
