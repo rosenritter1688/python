@@ -34,17 +34,6 @@ def listbox_add_selection():
     my_listbox.insert(END,f"{idx:03} 站名 {content['station_name']} ph值 {content['pH_value']} 濁度 {content['turbidity']} 餘氯 {content['residual_chlorine']}")
     Tk.update(root)
 
-
-
-
-def execute_SQL_command(sql_command):
-    global conn
-    print(sql_command)   #? for double checking each sql command
-    conn.executescript(sql_command)
-    conn.commit()
-    #conn.close() #! if u leave it here then u will only permit to insert 1 data only
-                  #! database is locked
-
 list_station_name = []
 list_pH_value = []
 list_turbidity = []
@@ -96,7 +85,7 @@ my_listbox.grid(row=0,column=0,sticky=W+E)
 
 scroll_bar_4_my_listbox.config(command=my_listbox.yview)
 
-def sql_add_DB():
+def execute_SQL_command():
     global conn
     global list_station_name,list_pH_value,list_turbidity,list_residual_chlorine
     global idx
@@ -106,18 +95,21 @@ def sql_add_DB():
     conn.executescript(sql_command)
     conn.commit()  
 
+def check_DB():
+    global conn
+    c = conn.cursor()
+    print ("Opened database successfully")
+    cursor = c.execute("SELECT *  from water")
+    for idx, row in enumerate(cursor, 1):
+        my_listbox2.insert(END,f"{str(idx)} {row[0]} {row[1]} {row[2]} {row[3]}")
+        Tk.update(root)
+
 def insert_to_DB():
     
     global list_station_name,list_pH_value,list_turbidity,list_residual_chlorine
     global idx
     print(my_listbox.curselection()) #? listbox 編號是從0開始 跟LIST依樣
     ## (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65)
-    # for item in my_listbox.curselection():              #!   item    is for each time we loop we get the index of the list box
-    #     print(str(item))
-        # selected_options = selected_options + my_listbox.get(item) + "\n"  #?my_listbox.get() -> get the index we want to get
-        # ## terminal (0, 1, 2) Label ( one "\n" two  "\n" three "\n"  ) #! line at 65 , label will get the text of the selected lists 
-        # selected_options = selected_options + str(item) + "\n"   #! label will get index number of the selected lists
-        # ## terminal (0, 1, 2) Label ( 0 "\n" 1  "\n" 2 "\n"  )
     '''double checking
     # print(len(list_station_name))
     # print(len(list_pH_value))
@@ -136,10 +128,11 @@ def insert_to_DB():
         print(list_turbidity[idx])
         print(list_residual_chlorine[idx])
         '''
-        sql_add_DB()
+        execute_SQL_command()
+    check_DB()
 
 #? Bttn2
-insert_to_DB_btn = Button(root,command=insert_to_DB,width=15,text="GET from URL",bg="#353130",fg="white")
+insert_to_DB_btn = Button(root,command=insert_to_DB,width=15,text="將選擇的項目存到資料庫,可只選像要存的",bg="#353130",fg="white")
 insert_to_DB_btn.grid(row=3,column=0,columnspan=2,sticky="WE")
 
 
