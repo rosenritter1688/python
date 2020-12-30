@@ -4,16 +4,16 @@ import sqlite3
 from tkinter import * #Listbox,END,Button,ANCHOR,Label,Frame,Scrollbar,VERTICAL,RIGHT,Y,Tk,MULTIPLE,Entry
 import tkinter as tk
 
-root = tk.Tk()
-root.geometry("1000x940")                  #Width x Height
-root.config(bg="#353130")                  #背景
-root.title("FINAL HW")              
-root.resizable(1,1)                        #1:True 0:False  此例 寬不可調, 高可調
-root.maxsize(width=1500, height=1080)      #可調整最大尺寸
-#root.minsize(width=800, height=640)       #可調整最小尺寸
+read = tk.Tk()
+read.geometry("1000x940")                  #Width x Height
+read.config(bg="#353130")                  #背景
+read.title("water_read")              
+read.resizable(1,1)                        #1:True 0:False  此例 寬不可調, 高可調
+read.maxsize(width=1500, height=1080)      #可調整最大尺寸
+#read.minsize(width=800, height=640)       #可調整最小尺寸
 #win.iconbitmap("C:\\Users\\clark\\Downloads\\cat.ico") #左上角的ico                 
-root.attributes("-alpha",1)                #透明度:0(全透)到1(不透)之間 
-root.attributes("-topmost",True)           #出現在螢幕最上面
+read.attributes("-alpha",1)                #透明度:0(全透)到1(不透)之間 
+read.attributes("-topmost",True)           #出現在螢幕最上面
 print("https://quality.data.gov.tw/dq_download_json.php?nid=133578&md5_url=ac39a7025bb0581ceb2eec2a28199191")
 
 #! WIN DESTOP
@@ -22,17 +22,17 @@ conn = sqlite3.connect(r'C:\Users\Bruce Ashbee\Documents\Python\HW\FINAL HW\myDa
 
 
 
-url_label= Label(root,text="URL :",bg="#353130",fg="white")
+url_label= Label(read,text="URL :",bg="#353130",fg="white")
 url_label.grid(row=0,column=0)
 
-url_entry = Entry(root,width=100,bg="#353130",fg="white")
+url_entry = Entry(read,width=100,bg="#353130",fg="white")
 url_entry.grid(row=0,column=1,sticky="WE")
 
 def listbox_add_selection():
     global content
     #print(content['station_name'])#? check for getting values for adding listbox selections
     my_listbox.insert(END,f"{idx:03} 站名 {content['station_name']} ph值 {content['pH_value']} 濁度 {content['turbidity']} 餘氯 {content['residual_chlorine']}")
-    Tk.update(root)
+    Tk.update(read)
 
 list_station_name = []
 list_pH_value = []
@@ -67,11 +67,11 @@ def get_JSON_frm_internet():
 
 
 #? Bttn1
-get_JSON_frm_internet_btn = Button(root,command=get_JSON_frm_internet,width=15,text="GET from URL",bg="#353130",fg="white")
+get_JSON_frm_internet_btn = Button(read,command=get_JSON_frm_internet,width=15,text="GET from URL",bg="#353130",fg="white")
 get_JSON_frm_internet_btn.grid(row=1,column=0,columnspan=2,sticky="WE")
 
 #? Frame1
-my_frame = Frame(root)
+my_frame = Frame(read)
 my_frame.grid(row=2,column=0,columnspan=2,sticky=W+E)
 
 #scroll bar
@@ -96,13 +96,15 @@ def execute_SQL_command():
     conn.commit()  
 
 def check_DB():
+    my_listbox2.delete(0,END) ### delet all
+    Tk.update(read)
     global conn
     c = conn.cursor()
     print ("Opened database successfully")
     cursor = c.execute("SELECT *  from water")
     for idx, row in enumerate(cursor, 1):
         my_listbox2.insert(END,f"{str(idx)} {row[0]} {row[1]} {row[2]} {row[3]}")
-        Tk.update(root)
+        Tk.update(read)
 
 def insert_to_DB():
     
@@ -132,12 +134,12 @@ def insert_to_DB():
     check_DB()
 
 #? Bttn2
-insert_to_DB_btn = Button(root,command=insert_to_DB,width=15,text="將選擇的項目存到資料庫,可只選像要存的",bg="#353130",fg="white")
+insert_to_DB_btn = Button(read,command=insert_to_DB,width=15,text="將選擇的項目存到資料庫,可只選像要存的",bg="#353130",fg="white")
 insert_to_DB_btn.grid(row=3,column=0,columnspan=2,sticky="WE")
 
 
 #? Frame2
-my_frame2 = Frame(root)
+my_frame2 = Frame(read)
 my_frame2.grid(row=4,column=0,columnspan=2,sticky=W+E)
 
 #scroll bar
@@ -151,5 +153,5 @@ my_listbox2.grid(row=0,column=0,sticky=W+E)
 
 scroll_bar_4_my_listbox.config(command=my_listbox2.yview)
 
-root.mainloop()
+read.mainloop()
 
