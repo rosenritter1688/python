@@ -74,7 +74,7 @@ def get_JSON_frm_internet():
     #* jsonData is <class 'list'>
     for idx , content in enumerate(jsonData,0): 
         #print(content)
-        #listbox_add_selection()
+        listbox_add_selection()
         ##{'所在縣市': '澎湖縣', '醫院名稱': '三軍總醫院澎湖分院附設民眾診療服務處', '編號': '1', '醫院評鑑評鑑結果': '醫院評鑑合格（地區醫院）', '教學醫院評鑑結果': '醫師及醫事人員類教學醫院評鑑合格', '醫院評鑑合格效期': '106/1/1-109/12/31', '教學醫院合格效期': '106/1/1-109/12/31', '醫院電話': '06-9211116', '地址': '澎湖縣馬公市前寮里90號1-5樓'}  
         #print("====================")
         #print("idx={0}, content={1} \n".format(idx, content))
