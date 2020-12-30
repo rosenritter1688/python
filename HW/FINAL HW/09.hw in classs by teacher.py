@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+##pandas data analysis
+## Numpy
+##Dataframe 500萬data 可能記憶體會不夠出錯  coz its all running in memory
+
+
+
 """
 Created on Wed Dec 16 18:41:21 2020
 

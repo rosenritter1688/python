@@ -54,12 +54,14 @@ def check_DB():
         list_pH_value.append(content[1])
         list_turbidity.append(content[2])
         list_residual_chlorine.append(content[3])
+    
     '''double checking
     print(len(list_station_name))
     print(len(list_pH_value))
     print(len(list_turbidity))
     print(len(list_residual_chlorine))
     '''
+    
 
 def insert_DB():
     pass

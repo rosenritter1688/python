@@ -16,12 +16,15 @@ def call_water_read():
     import water_read
 
 #? Bttn1
-call_water_read_btn = Button(main,command=call_water_read,width=15,text="GET from URL",bg="#353130",fg="white")
+call_water_read_btn = Button(main,command=call_water_read,width=15,text="water read",bg="#353130",fg="white")
 call_water_read_btn.grid(row=1,column=0,columnspan=2,sticky="WE")
 
+def call_water_edit():
+    import water_edit
+
 # #? Bttn2
-# insert_to_DB_btn = Button(main,command=insert_to_DB,width=15,text="將選擇的項目存到資料庫,可只選像要存的",bg="#353130",fg="white")
-# insert_to_DB_btn.grid(row=3,column=0,columnspan=2,sticky="WE")
+call_water_edit_btn = Button(main,command=call_water_edit,width=15,text="water edit",bg="#353130",fg="white")
+call_water_edit_btn.grid(row=3,column=0,columnspan=2,sticky="WE")
 
 main.mainloop()
 
