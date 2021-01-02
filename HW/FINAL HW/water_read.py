@@ -64,6 +64,7 @@ def get_JSON_frm_internet():
         ##66 {'station_name': '關山淨水場', 'pH_value': '7.91', 'turbidity': '0.25', 'residual_chlorine': '0.53'}
         listbox_add_selection()
         add_to_lists()
+        
 
 
 #? Bttn1
@@ -131,10 +132,11 @@ def insert_to_DB():
         print(list_residual_chlorine[idx])
         '''
         execute_SQL_command()
+
     check_DB()
 
 #? Bttn2
-insert_to_DB_btn = Button(read,command=insert_to_DB,width=15,text="將選擇的項目存到資料庫,可只選像要存的",bg="#353130",fg="white")
+insert_to_DB_btn = Button(read,command=insert_to_DB,width=15,text="將選擇的項目存到資料庫,可單選或是選多個，沒選不會存到資料庫",bg="#353130",fg="white")
 insert_to_DB_btn.grid(row=3,column=0,columnspan=2,sticky="WE")
 
 

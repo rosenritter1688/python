@@ -20,7 +20,7 @@ call_water_read_btn = Button(main,command=call_water_read,width=15,text="water r
 call_water_read_btn.grid(row=1,column=0,columnspan=2,sticky="WE")
 
 def call_water_edit():
-    import water_edit
+    import water_edit_v2
 
 # #? Bttn2
 call_water_edit_btn = Button(main,command=call_water_edit,width=15,text="water edit",bg="#353130",fg="white")

@@ -31,6 +31,7 @@ print(thistuple[1])
 print(thistuple[-1])
 thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 print(thistuple[2:5]) #不包括index 5同list
+##('cherry', 'orange', 'kiwi')
 
 '''
 Change Tuple Values
