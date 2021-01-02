@@ -52,7 +52,7 @@ def check_DB():
     my_listbox.delete(0,END) #? delete all
     Tk.update(edit)
     global c
-    print ("Opened database successfully")
+    print("Opened database successfully")
     cursor = c.execute("SELECT *  from water")
     for idx, content in enumerate(cursor, 1):
         my_listbox.insert(END,f"{str(idx)} {content[0]} {content[1]} {content[2]} {content[3]}")
@@ -87,17 +87,24 @@ insert_btn = Button(edit,command=insert_DB,width=15,text="INSERT",bg="#353130",f
 insert_btn.grid(row=0,column=2,sticky="WE")
 
 def update_DB():
-    SELECT ROW_NUMBER() AS num_row FROM water
+    global list_station_name,list_ph_value,list_turbidity,list_residual_chlorine
+    global conn,c
+    global name_4_update_delete
+    #SELECT ROW_NUMBER() AS num_row FROM water
     global value_frm_listbox #?its from def pass_selected_value_frm_listbox_to_entry
     #id_number_in_DB += 1
     station_name2 = entry_station_name.get()
     ph_value2 = entry_ph_value.get()
     turbidity2 =entry_turbidity.get()
     residual_chlorine2 = entry_residual_chlorine.get()
-    # c.execute(f"""UPDATE water
-    #              SET station_name = {station_name2}, pH_value = {ph_value2},turbidity = {turbidity2},residual_chlorine = {residual_chlorine2}
-    #              Where station_name = {station_name2}
-    #              """)
+    print("station_name2 : " + station_name2)
+    print(type(station_name2))
+    ##<class 'str'>
+    print("name_4_update_delete : " + name_4_update_delete)
+    print(type(name_4_update_delete))
+    a = (f"UPDATE water SET station_name = {station_name2}, ph_value = {ph_value2},turbidity = {turbidity2},residual_chlorine = {residual_chlorine2} WHERE station_name = '{name_4_update_delete}';")
+    print(a)
+    #conn.execute(f"UPDATE water SET station_name = {station_name2}, ph_value = {ph_value2},turbidity = {turbidity2},residual_chlorine = {residual_chlorine2} WHERE station_name = '{name_4_update_delete}';")
 update_btn = Button(edit,command=update_DB,width=15,text="UPDATE",bg="#353130",fg="white")
 update_btn.grid(row=1,column=2,sticky="WE")
 
@@ -113,6 +120,7 @@ query_btn.grid(row=4,column=0,columnspan=4,sticky="WE")
 
 def pass_selected_value_frm_listbox_to_entry(event):
     global list_station_name,list_ph_value,list_turbidity,list_residual_chlorine
+    global name_4_update_delete,value_frm_listbox
     #? my_listbox.bind('<<ListboxSelect>>',left_click) this line of coding is a must!!!!!!!! at line 117
     entry_station_name.delete(0, END)
     entry_ph_value.delete(0, END)
@@ -136,16 +144,17 @@ def pass_selected_value_frm_listbox_to_entry(event):
     #print(type(value))
     ##<class 'tuple'>
     value_frm_listbox = value[0]
-    print(f"value frm list box is {value_frm_listbox}")
+    #print(f"value frm list box is {value_frm_listbox}")
     ## 3
     #print(list_station_name[value_frm_listbox])
     ##坪林淨水場
+    name_4_update_delete = list_station_name[value_frm_listbox]
+    #print(f'name_4_update_delete is {name_4_update_delete}')
+    ##關山淨水場
     entry_station_name.insert(1,f"{list_station_name[value_frm_listbox]}")
     entry_ph_value.insert(1,f"{list_ph_value[value_frm_listbox]}")
     entry_turbidity.insert(1,f"{list_turbidity[value_frm_listbox]}")
     entry_residual_chlorine.insert(1,f"{list_residual_chlorine[value_frm_listbox]}")
-    return value_frm_listbox
-
 
 
 #? Frame1
