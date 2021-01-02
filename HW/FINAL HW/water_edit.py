@@ -39,9 +39,12 @@ list_pH_value = []
 list_turbidity = []
 list_residual_chlorine = []
 
+
+
 def check_DB():
     global content
     global list_station_name,list_pH_value,list_turbidity,list_residual_chlorine
+    my_listbox.delete(0,END) #? delete all
     Tk.update(edit)
     global conn
     c = conn.cursor()
@@ -80,6 +83,26 @@ delete_btn.grid(row=2,column=2,sticky="WE")
 query_btn= Button(edit,command=check_DB,width=15,text="QUERY",bg="#353130",fg="white")
 query_btn.grid(row=4,column=0,columnspan=4,sticky="WE")
 
+
+def left_click(event):
+    #! my_listbox.bind('<<ListboxSelect>>',left_click) this line of coding is a must!!!!!!!! at line 117
+    #! method 1 get selected value from list box
+    # value = (my_listbox.get(ANCHOR))
+    # print(value)
+    ## 8 龍潭淨水場 7.95 0.28 0.6
+    #! method 2
+    # widget = event.widget
+    # selection=widget.curselection()
+    # print(selection)
+    # ## (1,)
+    # print(type(selection))
+    # ##<class 'tuple'>
+    #! method 3
+    value = (my_listbox.curselection())
+    print(value)
+    # ##(3,)
+
+
 #? Frame1
 my_frame = Frame(edit)
 my_frame.grid(row=5,column=0,columnspan=4,sticky=W+E)
@@ -90,9 +113,10 @@ scroll_bar_4_my_listbox.grid(row=0,column=1,sticky=N+S)
 
 #Listbox
 #*  SELECT MODE = SINGLE IS AT DEFAULT
-my_listbox = Listbox(my_frame, width=110, bg="#353130",fg="white",yscrollcommand=scroll_bar_4_my_listbox.set, selectmode = MULTIPLE)  #?yscrollcommand -> is for horizontal scrollbar
+my_listbox = Listbox(my_frame, width=110, bg="#353130",fg="white",yscrollcommand=scroll_bar_4_my_listbox.set)  #?yscrollcommand -> is for horizontal scrollbar  #!selectmode = MULTIPLE 
 my_listbox.grid(row=0,column=0,columnspan=3,sticky=W+E)
-
+my_listbox.bind('<<ListboxSelect>>',left_click) #! 滑鼠左鍵點一次之後呼叫功能left_click
+#! <Button-1> 表示滑鼠左鍵按一次，可是用的話會顯示上一個所選的  所以要改用<<ListboxSelect>>  才會顯示現在所選的選項
 scroll_bar_4_my_listbox.config(command=my_listbox.yview)
 
 edit.mainloop()
