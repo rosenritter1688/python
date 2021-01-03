@@ -81,11 +81,11 @@ def insert_DB():
     turbidity =entry_turbidity.get()
     residual_chlorine = entry_residual_chlorine.get()
     #print("station_name : " + station_name,"ph_value : " + ph_value,"turbidity : " + turbidity,"residual_chlorine : " + residual_chlorine)
-    global c
+    global conn
     sql_command = " INSERT INTO water (station_name, pH_value, turbidity, residual_chlorine) values("
     sql_command = sql_command + "'" + station_name + "'" + "," + ph_value + ","  + turbidity + ","  + residual_chlorine + ")"
     print(sql_command)
-    c.executescript(sql_command)
+    conn.executescript(sql_command)
     check_DB()# renew data in lists > list_station_name,list_ph_value,list_turbidity,list_residual_chlorine
     #conn.commit()  
 

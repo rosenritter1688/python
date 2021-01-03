@@ -26,5 +26,12 @@ def call_water_edit():
 call_water_edit_btn = Button(main,command=call_water_edit,width=15,text="water edit",bg="#353130",fg="white")
 call_water_edit_btn.grid(row=3,column=0,columnspan=2,sticky="WE")
 
+def call_water_chart():
+    import call_water_chart
+
+# #? Bttn2
+call_water_chart_btn = Button(main,command=call_water_chart,width=15,text="water edit",bg="#353130",fg="white")
+call_water_chart_btn.grid(row=4,column=0,columnspan=2,sticky="WE")
+
 main.mainloop()
 
