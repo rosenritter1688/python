@@ -45,8 +45,8 @@ win.geometry('1900x800')
 
  
 
-def  qo(instr):
-     return "'" + instr +"'"
+def qo(instr):
+     return "'" + instr + "'"
 def getAll():
     sqlstr = "select std_id, course_id, rcd from record "
     listx = execSQLcommand(sqlstr).fetchall()
@@ -63,8 +63,6 @@ def onselect(evt):
     
     etycourse_id.delete(0, END);  
     etycourse_id.insert(0, selecteditem[0] )
-
- 
 
     etycourse_name.delete(0, END); 
     etycourse_name.insert(0, selecteditem[1] )
@@ -132,8 +130,8 @@ def getAvg():
     #
     #plot1.plot(x, y1)  
     #plot1.plot(x, y2, linestyle='-', color='r')
-    myDframe.plot(x='std_id',  y='avgRcd',  ax=plot1, kind='scatter')
-  
+    #myDframe.plot(x='std_id',  y='avgRcd',  ax=plot1, kind='scatter')
+    myDframe.plot(x='std_id',  y='avgRcd',  ax=plot1)
     #myDframe.plot(avgList,  kind='pie',labels=courseList,explode=explode, autopct='%1.1f%%',counterclock=False, shadow=True)
 
  

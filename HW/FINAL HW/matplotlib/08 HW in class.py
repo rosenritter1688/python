@@ -167,11 +167,15 @@ def getStat():
     C001_stdList = []
     #C001_courseList = []
     C001_rcdList = []
+    print("result is : " ,result)
+    ## [('梁', 98), ('S002', 85), ('S003', 98), ('S004', 67), ('S005', 60), ('S006', 62), ('S007', 85), ('S008', 65), ('S009', 81), ('S010', 76), ('S011', 70), ('S012', 93), ('S013', 93), ('S014', 83), ('S015', 95), ('S016', 64), ('S017', 55), ('S018', 93), ('S019', 51), ('S020', 55), ('S021', 75), ('S022', 88), ('S023', 69), ('S024', 83), ('S025', 96), ('S026', 72), ('S027', 86), ('S028', 96), ('S029', 81), ('S030', 76)]
+    ##[98, 85, 98, 67, 60, 62, 85, 65, 81, 76, 70, 93, 93, 83, 95, 64, 55, 93, 51, 55, 75, 88, 69, 83, 96, 72, 86, 96, 81, 76]
     for item in result:
         
         C001_stdList.append(item[0])
         #courseList.append(item[1])
         C001_rcdList.append(item[1])
+    print(C001_rcdList)
     sqlstr = "select std_id , rcd from record  where course_id = 'C002'"
     '''
     #select std_id , rcd from record  where course_id = 'C001';
