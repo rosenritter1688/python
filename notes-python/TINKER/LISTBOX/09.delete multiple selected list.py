@@ -39,10 +39,12 @@ def delete_all():
     my_listbox.delete(0,END) #? delete all
 
 def delete():
+    value = my_listbox.get(ANCHOR)
     my_listbox.delete(ANCHOR)  #? when something in the list box is highlighted when you click on it, That is the ANCHOR
     Tk.update(root)
+    my_label.config(text=f"{value} is deleted")
 
-def select():
+def select_btn_function():
     my_label.config(text=my_listbox.get(ANCHOR))
 
 global my_label
@@ -53,7 +55,7 @@ delete_all_button.pack(pady=15)
 my_button = Button(root, height=1, width=10,bg="#353130",fg="white", text="DELETE",command=delete)
 my_button.pack(pady=15)
 
-select_button = Button(root, height=1, width=10,bg="#353130",fg="white", text="SELECT",command=select)
+select_button = Button(root, height=1, width=10,bg="#353130",fg="white", text="SELECT",command=select_btn_function)
 select_button.pack(pady=15)
 
 def show_multiple_selected_list():
