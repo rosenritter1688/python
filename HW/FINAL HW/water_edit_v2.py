@@ -106,6 +106,7 @@ def update_DB():
     print("station_name2 : " + station_name2)
     print(type(station_name2))
     ##<class 'str'>
+    name_4_update_delete = list_station_name[indx_of_values_frm_listbox]
     print("name_4_update_delete : " + name_4_update_delete)
     print(type(name_4_update_delete))
     print("sqlscript checking : " + f"UPDATE water SET ph_value = {ph_value2},turbidity = {turbidity2},residual_chlorine = {residual_chlorine2} WHERE station_name = '{name_4_update_delete}';")
