@@ -10,13 +10,8 @@ import matplotlib.pyplot as mp
 import numpy as np
 from tkinter import *
 
- 
-
 from matplotlib.figure import Figure 
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,  NavigationToolbar2Tk) 
-
- 
-
 
 import sqlite3
 def execSQLcommand(sqlstr):
@@ -31,8 +26,6 @@ def execSQLcommand(sqlstr):
       print("指令有誤:", sqlstr)
 myConn = sqlite3.connect(r"C:\Users\Administrator\Desktop\student.db")
 myCursor = myConn.cursor()
-
- 
 
 win = Tk()
 win.geometry('800x800')

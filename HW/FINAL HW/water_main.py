@@ -10,7 +10,7 @@ main.maxsize(width=1500, height=1080)      #可調整最大尺寸
 #main.minsize(width=800, height=640)       #可調整最小尺寸
 #win.iconbitmap("C:\\Users\\clark\\Downloads\\cat.ico") #左上角的ico                 
 main.attributes("-alpha",1)                #透明度:0(全透)到1(不透)之間 
-main.attributes("-topmost",True)           #出現在螢幕最上面
+main.attributes("-topmost",False)           #出現在螢幕最上面
 
 def call_water_read():
     import water_read
