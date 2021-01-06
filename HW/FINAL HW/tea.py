@@ -1,5 +1,3 @@
-[2020/12/23 20:37] 葉炳倉
-    
 # -*- coding: utf-8 -*-
 """
 Created on Wed Dec 16 18:41:21 2020
@@ -28,7 +26,7 @@ def execSQLcommand(sqlstr):
       return myCursor
     except:
       print("指令有誤:", sqlstr)
-myConn = sqlite3.connect(r"C:\Users\Administrator\Desktop\student.db")
+myConn = sqlite3.connect(r"C:\Users\Bruce Ashbee\Documents\Python\HW\SENSEI\student.db")
 myCursor = myConn.cursor()
 
 

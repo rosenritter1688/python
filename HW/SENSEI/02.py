@@ -18,7 +18,7 @@ def execSQLcommand(sqlstr):
         return myCursor
     except:
         print("指令有誤:", sqlstr)
-myConn = sqlite3.connect(r"C:\Users\Administrator\Desktop\student.db")
+myConn = sqlite3.connect(r"C:\Users\Bruce Ashbee\Documents\Python\HW\SENSEI\student.db")
 myCursor = myConn.cursor()
 
  
