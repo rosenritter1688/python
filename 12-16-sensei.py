@@ -19,7 +19,10 @@ def execSQLcommand(sqlstr):
       return myCursor
     except:
       print("指令有誤:", sqlstr)
-myConn = sqlite3.connect(r"/Users/bruceashbee/Documents/Python/student-sensei.db")
+#? Win 10
+#myConn = sqlite3.connect(r"/Users/bruceashbee/Documents/Python/student-sensei.db")
+#? Ubuntu
+myConn = sqlite3.connect(r"/media/bruce/新增磁碟區/Python/student-sensei.db")
 myCursor = myConn.cursor()
 
 
