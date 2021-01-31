@@ -1,6 +1,6 @@
 s = 'one two one two one'
 
-print(s.replace(' ', ''))
+print(s.replace(' ', '-'))
 # one-two-one-two-one
 
 

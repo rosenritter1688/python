@@ -1,11 +1,12 @@
 
 
 #TODO 1.img file name needed to add 0 exp. C01.png,C02.png,C03.png
-#TODO 2.so sorted() can be used
+#TODO so sorted() can be used
 import random
 from tkinter import Tk,Label,Button,PhotoImage
 from PIL import ImageTk,Image      ##縮小照片用的
 from tkinter import font as tkFont  #變更字體大小用的
+
 
 win = Tk()
 win.title("poker")
@@ -42,8 +43,8 @@ print(type(cards)) #<class 'set'>
 #---LABEL--for card cover---
 #WIN 10
 #image_cover = Image.open('/Users/bruceashbee/Documents/img/poker圖檔/poker_cover.png')
-#MAC OS
-image_cover = Image.open('/Users/bruceashbee/Documents/img/poker圖檔/poker_cover.png')
+#MAC OS                   
+image_cover = Image.open('/Users/bruceashbee/Documents/Python/img/poker圖檔/poker_cover.png')
 #                                (height, width)
 image_cover = image_cover.resize((210, 260), Image.ANTIALIAS)
 my_img = ImageTk.PhotoImage(image_cover)
@@ -71,8 +72,8 @@ def calling_left():#for group 1
         print (file_name)
         #WIN 10
         #card_img = PhotoImage(file=f'C:\\Users\\Bruce Ashbee\Documents\\Python 2020\\img\\poker圖檔\\{file_name.strip()}.PNG')
-        #MAC OS
-        card_img = PhotoImage(file=f'/Users/bruceashbee/Documents/img/poker圖檔/{file_name.strip()}.PNG')
+        #MAC OS                      
+        card_img = PhotoImage(file=f'/Users/bruceashbee/Documents/Python/img/poker圖檔/{file_name.strip()}.PNG')
         #img/poker圖檔/H8.PNG
         Label_for_group1 = Label(win,text='card_image',image=card_img)
         x_pos+=10
