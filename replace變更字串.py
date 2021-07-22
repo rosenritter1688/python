@@ -5,6 +5,5 @@ print(s.replace(' ', '-'))
 
 
 z = 'one two one two one'
-#ji = z.replace(',', '')
-print(z.replace(',', ''))
-#123456.789
+ji = z.replace(' ',',')
+print(ji)
